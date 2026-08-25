@@ -40,23 +40,23 @@ This project implements an end-to-end demand forecasting platform that goes beyo
         ↓
     Hyperparameter Optimization
         ↓
-        Experiment Tracking
+    Experiment Tracking
         ↓
-        Champion Model Selection
+    Champion Model Selection
         ↓
-        Model Registry
+    Model Registry
         ↓
-        Recursive Forecasting
+    Recursive Forecasting
         ↓
-        Production Inference API
+    Production Inference API
         ↓
-        Dockerized Deployment
+    Dockerized Deployment
         ↓
-        AWS Deployment
+    AWS Deployment
         ↓
-        Prometheus + Grafana Monitoring
+    Prometheus + Grafana Monitoring
         ↓
-        CloudWatch Logging
+    CloudWatch Logging
 
 ## 🎯 Objectives
 
@@ -290,33 +290,33 @@ The main objectives of this project were:
 
     This design separates:
 
-        - Hyperparameter definitions
-        - Search spaces
-        - Optimization strategies
-        - Tuning execution
-        - Result reporting
-        - Visualization
+    - Hyperparameter definitions
+    - Search spaces
+    - Optimization strategies
+    - Tuning execution
+    - Result reporting
+    - Visualization
 
     from the actual model-training implementation.
 
-    Why this matters
+    Why this matters?
 
     This makes the tuning framework extensible.
 
     For example, the same overall architecture can support:
 
-       Model
-        ↓
-     Objective Function
-        ↓
-     Search Strategy
-        ↓
-      Trial
-        ↓
+    Model
+      ↓
+    Objective Function
+      ↓
+    Search Strategy
+      ↓
+    Trial
+      ↓
     Training
-        ↓
+      ↓
     Evaluation
-        ↓
+      ↓
     Optimization
 
     without rewriting the complete training pipeline for every optimization method.
@@ -700,36 +700,36 @@ The main objectives of this project were:
 
     The project follows several engineering principles.
 
-        1. ***Separation of concerns***
+        1. Separation of concerns
 
            - Training, tuning, evaluation, registry, and production inference are separated into dedicated modules.
 
-        2. ***Configuration-driven experimentation***
+        2. Configuration-driven experimentation
 
            - Hyperparameter configurations are stored separately from training code.
 
-        3. ***Pluggable tuning strategies***
+        3. Pluggable tuning strategies
 
            - Different optimization strategies can be selected without rewriting the entire training pipeline.
 
-        4. ***Reusable preprocessing***
+        4. Reusable preprocessing
 
             - Production preprocessing is separated from research experimentation so inference can reproduce the required transformations.
 
-        5. ***Model lifecycle management***
+        5. Model lifecycle management
 
             - Model evaluation, champion selection, registry, and deployment are treated as separate lifecycle stages.
 
-        6. ***Observability by design***
+        6. Observability by design
 
             - The production service exposes metrics and integrates with centralized logging.
 
-        7. ***Cloud-ready architecture***
+        7. Cloud-ready architecture
 
             - The system supports AWS-based storage, compute, managed ML services, and monitoring.
 
 ## 🛠️ **Technology Stack**
-      ![Technology Stack](images/image.png)
+       ![Technology Stack](images/image.png)
 
 ## 🧠 **What Makes This Project Different?**
 
