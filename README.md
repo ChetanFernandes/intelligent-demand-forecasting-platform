@@ -26,41 +26,14 @@ This project implements a complete demand forecasting platform that goes beyond 
 The platform is designed around the complete machine learning lifecycle:
 
 
-Data Ingestion
-      ↓
-Data Processing & Validation
-      ↓
-Feature Engineering
-      ↓
-Feature Selection / Encoding
-      ↓
-Model Training
-      ↓
-Model Evaluation & Comparison
-      ↓
-Hyperparameter Optimization
-      ↓
-Experiment Tracking
-      ↓
-Champion Model Selection
-      ↓
-Model Registry
-      ↓
-Recursive Forecasting
-      ↓
-Production Inference API
-      ↓
-Dockerized Deployment
-      ↓
-AWS Deployment
-      ↓
-Prometheus + Grafana Monitoring
-      ↓
-CloudWatch Logging
+Data Ingestion -> Data Processing & Validation -> Feature Engineering -> Feature Selection / Encoding -> Model Training
+-> Model Evaluation & Comparison -> Hyperparameter Optimization -> Experiment Tracking -> Champion Model Selection -> Model Registry
+-> Recursive Forecasting -> Production Inference API -> Dockerized Deployment -> AWS Deployment -> Prometheus + Grafana Monitoring
+-> CloudWatch Logging
 
 The goal was to build a system that demonstrates how a forecasting model can move from research and experimentation to production inference and monitoring.
 
->> 🎯 Objectives
+## 🎯Objectives
 
 The main objectives of this project were:
 
@@ -80,7 +53,7 @@ The main objectives of this project were:
     Implement application and infrastructure observability.
     Validate the system through automated tests.
 
->> 🏗️ High-Level Architecture
+## 🏗️ High-Level Architecture
 
                     ┌─────────────────────────┐
                     │       Source Data       │
@@ -167,9 +140,11 @@ The main objectives of this project were:
            │ • SageMaker  │                │ CloudWatch   │
            └──────────────┘                └──────────────┘
 
->> 🧠 Machine Learning Pipeline
+## 🧠 Machine Learning Pipeline
+
 
 1. **Data Ingestion**
+
     The project separates data ingestion from downstream machine learning components.
 
     The ingestion layer is responsible for bringing the required source data into the processing pipeline and preparing it for subsequent transformations.
@@ -720,83 +695,83 @@ The main objectives of this project were:
 
         This is the core reason the project is positioned as a platform rather than a standalone forecasting notebook.
 
-🧩 # **Design Principles**
+## 🧩 **Design Principles**
 
-The project follows several engineering principles.
+    The project follows several engineering principles.
 
-    ## Separation of concerns
+        ## Separation of concerns
 
-     - Training, tuning, evaluation, registry, and production inference are separated into dedicated modules.
+        - Training, tuning, evaluation, registry, and production inference are separated into dedicated modules.
 
-    ## Configuration-driven experimentation
+        ## Configuration-driven experimentation
 
-    - Hyperparameter configurations are stored separately from training code.
+        - Hyperparameter configurations are stored separately from training code.
 
-    ## Pluggable tuning strategies
+        ## Pluggable tuning strategies
 
-    - Different optimization strategies can be selected without rewriting the entire training pipeline.
+        - Different optimization strategies can be selected without rewriting the entire training pipeline.
 
-    ## Reusable preprocessing
+        ## Reusable preprocessing
 
-    - Production preprocessing is separated from research experimentation so inference can reproduce the required transformations.
+        - Production preprocessing is separated from research experimentation so inference can reproduce the required transformations.
 
-    ## Model lifecycle management
+        ## Model lifecycle management
 
-    - Model evaluation, champion selection, registry, and deployment are treated as separate lifecycle stages.
+        - Model evaluation, champion selection, registry, and deployment are treated as separate lifecycle stages.
 
-    ## Observability by design
+        ## Observability by design
 
-    - The production service exposes metrics and integrates with centralized logging.
+        - The production service exposes metrics and integrates with centralized logging.
 
-    ## Cloud-ready architecture
+        ## Cloud-ready architecture
 
-    - The system supports AWS-based storage, compute, managed ML services, and monitoring.
+        - The system supports AWS-based storage, compute, managed ML services, and monitoring.
 
-🛠️ # **Technology Stack**
+## 🛠️ **Technology Stack**
       ![Technology Stack](images\image.png)
 
-🧠 # **What Makes This Project Different?**
+## 🧠 **What Makes This Project Different?**
 
-    This project is intentionally designed to demonstrate more than model accuracy.
+        This project is intentionally designed to demonstrate more than model accuracy.
 
-    It covers the complete lifecycle
-    Research
-    ↓
-    Experimentation
-    ↓
-    Optimization
-    ↓
-    Model Management
-    ↓
-    Productionization
-    ↓
-    Cloud Deployment
-    ↓
-    Monitoring
-    It separates training from inference
+        It covers the complete lifecycle
+        Research
+        ↓
+        Experimentation
+        ↓
+        Optimization
+        ↓
+        Model Management
+        ↓
+        Productionization
+        ↓
+        Cloud Deployment
+        ↓
+        Monitoring
+        It separates training from inference
 
-    The production environment does not need to contain the entire experimentation stack.
+        The production environment does not need to contain the entire experimentation stack.
 
-    It supports multiple optimization strategies
+        It supports multiple optimization strategies
 
-    Rather than depending on a single hyperparameter optimizer, the architecture supports multiple search approaches.
+        Rather than depending on a single hyperparameter optimizer, the architecture supports multiple search approaches.
 
-    It includes real operational concerns
+        It includes real operational concerns
 
-    The project addresses:
+        The project addresses:
 
-    API health
-    Request metrics
-    Error monitoring
-    Request latency
-    Centralized logs
-    Cloud deployment
-    IAM
-    Containerization
-    Model lifecycle management
+        API health
+        Request metrics
+        Error monitoring
+        Request latency
+        Centralized logs
+        Cloud deployment
+        IAM
+        Containerization
+        Model lifecycle management
 
 
-🔮 **Future Improvements**
+## 🔮 **Future Improvements**
 
     Potential future enhancements include:
 
@@ -813,7 +788,7 @@ The project follows several engineering principles.
     Advanced forecasting ensembles
     Automated model performance dashboards
 
-📚 # **Project Learning Outcomes**
+## 📚 **Project Learning Outcomes**
 
     This project provided hands-on implementation across the complete machine learning lifecycle:
 
@@ -852,7 +827,7 @@ The project follows several engineering principles.
     Project:
     https://github.com/ChetanFernandes/intelligent-demand-forecasting-platform
 
-⭐ Summary
+## ⭐ **Summary**
 
     The Intelligent Demand Forecasting Platform demonstrates how a machine learning forecasting solution can be developed as a complete production-oriented system rather than as an isolated notebook.
 
