@@ -729,7 +729,8 @@ The main objectives of this project were:
             - The system supports AWS-based storage, compute, managed ML services, and monitoring.
 
 ## 🛠️ **Technology Stack**
-       ![Technology Stack](images/image.png)
+
+![Technology Stack](images/image.png)
 
 ## 🧠 **What Makes This Project Different?**
 
