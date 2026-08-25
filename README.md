@@ -262,6 +262,21 @@ The main objectives of this project were:
 
     This makes it possible to compare candidate models under the same data-processing and evaluation framework.
 
+
+![Model RMSE Comparison](images/model_rmse_comparison.png)
+
+### SageMaker HPO — Native Encoding
+
+![SageMaker HPO Native Encoding RMSE Comparison](images/sagemaker_hpo_native_rmse_sample_size.png)
+
+### Ensemble Model Performance
+
+![Ensemble Strategy RMSE Comparison](images/ensemble_stratergy_rmse_comparison.png)
+
+### Final X_test Performance
+
+![X_test Performance Metrics](images/x_test_performance_metrics.png)
+
 🔬 7. **Hyperparameter Optimization**
 
     One of the major components of this project is automated hyperparameter optimization.
@@ -730,13 +745,14 @@ The main objectives of this project were:
 
 ## 🛠️ **Technology Stack**
 
-![Technology Stack](images/image.png)
+![Technology Stack](images/technology-stack.png.png)
 
 ## 🧠 **What Makes This Project Different?**
 
         This project is intentionally designed to demonstrate more than model accuracy.
 
         It covers the complete lifecycle
+
             Research
                 ↓
             Experimentation
@@ -751,13 +767,9 @@ The main objectives of this project were:
                 ↓
             Monitoring
 
-        It separates training from inference
+        It separates training from inference/ The production environment does not need to contain the entire experimentation stack.
 
-        The production environment does not need to contain the entire experimentation stack.
-
-        It supports multiple optimization strategies
-
-        Rather than depending on a single hyperparameter optimizer, the architecture supports multiple search approaches.
+        It supports multiple optimization strategies. Rather than depending on a single hyperparameter optimizer, the architecture supports multiple search approaches.
 
         It includes real operational concerns
 
