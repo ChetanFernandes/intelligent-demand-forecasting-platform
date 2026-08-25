@@ -1,0 +1,17 @@
+
+global: 
+  scrape_interval: 15s      # Scrape my application's /metrics endpoint every 15 seconds.
+
+rule_files:
+  - "recording_rules.yml"
+
+#alerting:
+  #alertmanagers:
+    #- static_configs:
+        #- targets:
+            #- "host.docker.internal:9093"
+
+scrape_configs:
+  - job_name: "demand-forecasting-api"
+    static_configs:  # Here are the applications I want you to monitor."
+      - targets: ["api:8000"]       # "Prometheus, the FastAPI application is available at port 8000 on the host machine."

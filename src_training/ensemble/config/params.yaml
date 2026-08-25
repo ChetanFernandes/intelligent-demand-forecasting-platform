@@ -1,0 +1,44 @@
+DemandForecasting_XGBoost_RMSSE:
+  objective: reg:squarederror
+  colsample_bytree: 0.6624074561769746
+  enable_categorical: true
+  eval_metric: rmse
+  gamma: 0.7799726016810132
+  learning_rate: 0.056217808319315374
+  max_depth: 10
+  min_child_weight: 13
+  n_estimators: 220
+  random_state: 42
+  reg_alpha: 0.05808361216819946
+  reg_lambda: 4.330880728874676
+  subsample: 0.8394633936788146
+DemandForecasting_LightGBM_RMSSE:
+  boosting_type: gbdt
+  colsample_bytree: 0.8717860295346488
+  importance_type: split
+  learning_rate: 0.0629292169262573
+  max_depth: 6
+  min_child_samples: 17
+  min_child_weight: 0.001
+  min_split_gain: 0.7182775887096615
+  n_estimators: 237
+  num_leaves: 34
+  reg_alpha: 0.4916392226008014
+  reg_lambda: 1.099467558722362
+  subsample: 0.9135933406640235
+  subsample_for_bin: 200000
+  subsample_freq: 2
+DemandForecasting_CatBoost_RMSSE:
+  iterations: 390
+  learning_rate: 0.07505989156366766
+  depth: 8
+  l2_leaf_reg: 1.1282563868079432
+  rsm: 0.7708449222533327
+  loss_function: RMSE
+  border_count: 255
+  random_strength: 4.897782584174607
+  eval_metric: RMSE
+  subsample: 0.6059239606245164
+  min_data_in_leaf: 14
+  random_seed: 42
+  verbose: false

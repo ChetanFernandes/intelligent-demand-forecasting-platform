@@ -1,0 +1,8 @@
+mlflow==3.14.0
+pandas
+numpy
+scikit-learn==1.9.0
+xgboost
+lightgbm
+catboost
+cloudpickle

@@ -1,0 +1,26 @@
+FROM python:3.12-slim
+
+WORKDIR /opt/ml/code
+
+COPY requirements_inference.txt .
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends libgomp1 && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir -r requirements_inference.txt
+
+# Copy the complete source package
+COPY src ./src
+
+# Copy inference entry point
+COPY src/production_deployment/sagemaker/inference.py .
+
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/opt/ml/code
+
+EXPOSE 8080
+
+ENTRYPOINT ["python", "inference.py"]
+
+CMD ["serve"]

@@ -1,0 +1,21 @@
+groups:
+  - name: forecast_recording_rules #grop name
+    interval: 30s
+    rules:
+      - record: forecast_request_duration_seconds:p95 #name of new metric
+        expr: |
+          histogram_quantile(
+            0.95,
+            rate(forecast_request_duration_seconds_bucket[5m])
+          )
+
+  - name: forecast_alerts
+    rules:
+      - alert: HighForecastLatency
+        expr: forecast_request_duration_seconds:p95 > 100
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High forecast API latency"
+          description: "P95 forecast latency has been above 100 seconds for 1 minute."

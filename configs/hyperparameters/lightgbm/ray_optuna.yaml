@@ -1,0 +1,5 @@
+learning_rate: 0.03731242036996277
+num_leaves: 35
+max_depth: 4
+min_child_samples: 19
+n_estimators: 173

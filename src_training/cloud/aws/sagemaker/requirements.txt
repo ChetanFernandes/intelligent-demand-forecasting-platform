@@ -1,0 +1,9 @@
+lightgbm
+xgboost
+catboost
+pandas
+pyarrow
+scikit-learn
+joblib
+mlflow==2.22.0
+sagemaker-mlflow

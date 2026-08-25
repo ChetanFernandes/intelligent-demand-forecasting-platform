@@ -1,0 +1,38 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::faang-ml-platform",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": [
+            "forecast_data",
+            "forecast_data/*",
+            "forecast_result",
+            "forecast_result/*",
+            "grafana-backup",
+            "grafana-backup/*"
+          ]
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": [
+        "arn:aws:s3:::faang-ml-platform/forecast_data/*",
+        "arn:aws:s3:::faang-ml-platform/grafana-backup/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": [
+        "arn:aws:s3:::faang-ml-platform/forecast_result/*",
+        "arn:aws:s3:::faang-ml-platform/grafana-backup/*"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+
+LIGHTGBM_BEST_PARAMS  = {
+                   'colsample_bytree':0.8,
+                   'importance_type':"gain",
+                   'learning_rate':0.05,
+                   'max_depth':-1,
+                   'min_child_samples':20,
+                   'min_child_weight':0.001,
+                   'min_split_gain':0.5,
+                   'num_leaves':25,
+                   'n_estimators':110,
+                   'n_jobs':-1,
+                   'objective':'regression',
+                   'random_state':42,
+                   'reg_alpha':0.0,
+                   'reg_lambda':0.0,
+                   'sample_size': 500000,
+                   'subsample':1.0,
+                   'subsample_for_bin':200000,
+                   'subsample_freq':4,
+                   }
+
+XGBOOST_BEST_PARAMS = {
+                    "n_estimators":75,
+                    "n_jobs":-1,
+                    "objective": "reg:squarederror",
+                    "random_state":42,
+                    "learning_rate":0.07,
+                    "max_depth":6,
+                    "base_score": None,
+                    "booster":"gbtree",
+                    "callbacks":None,
+                    "colsample_bylevel":0.95,
+                    "colsample_bynode":0.9,
+                    "colsample_bytree":0.90,
+                    "reg_alpha":0.05,
+                    "reg_lambda":0.1,
+                    "min_child_weight":8,
+                    "subsample":0.8,
+                    "gamma":1,
+                    "grow_policy":None,
+                    "max_leaves": None,
+                    "importance_type":"gain",
+                    "device":None,
+                    "early_stopping_rounds":25,
+                    "enable_categorical":False,
+                    "eval_metric":"rmse",
+                    "feature_types":None,
+                    "feature_weights":None,
+                    "interaction_constraints":None,
+                    "max_bin":256,
+                    "max_cat_threshold":None,
+                    "max_cat_to_onehot":None,
+                    "max_delta_step":None,
+                    "monotone_constraints":None,
+                    "multi_strategy":None,
+                    "num_parallel_tree":None,
+                    "sampling_method":None,
+                    "scale_pos_weight":None,
+                    "tree_method":"hist",
+                    "validate_parameters":True,
+                    "verbosity":None,
+                    }
+
+
+CATBOOST_HYPER_PARAMS = {
+                    "loss_function": "RMSE",
+                    "iterations": 300,
+                    "learning_rate": 0.09,
+                    "depth": 10,
+                    "random_seed": 42,
+                    "verbose": False,
+                    "l2_leaf_reg":0.03,
+                    "model_size_reg":None,
+                    "border_count":255, #Number of bins
+                    "random_strength":2,
+                    "bagging_temperature":None,
+                    "grow_policy":"SymmetricTree",
+                    "min_data_in_leaf":5,
+                    "rsm":0.8,  #similar to colsample_bytre
+                    "use_best_model":True,
+                    "verbose":True,
+                    "subsample" : 0.8,
+                    "sampling_frequency":None,
+                    "leaf_estimation_method":None,
+                    "boosting_type":None
+
+                }
+
+    
+

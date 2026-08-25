@@ -1,0 +1,82 @@
+# ==============================
+# Generated Documentation
+# ==============================
+docs/
+
+# ==============================
+# Datasets
+# ==============================
+artifacts/datasets/
+artifacts/recursive_prediction/validation_report/
+artifacts/validation_report/
+artifacts/recursive_prediction/
+barclays.ipynb
+
+# ==============================
+# Production Artifacts
+# ==============================
+artifacts/production/
+
+# ==============================
+# MLflow
+# ==============================
+mlflow.db
+mlflow.db-shm
+mlflow.db-wal
+mlflow_backup.db
+mlruns/
+
+# ==============================
+# Grafana
+# ==============================
+grafana-inspect.db
+grafana_backup/
+grafana-backup/
+
+# ==============================
+# Model Archives
+# ==============================
+*.tar.gz
+
+
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ==============================
+# Environment & Secrets
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# CatBoost
+# ==============================
+catboost_info/
+
+
+# ==============================
+# Logs
+# ==============================
+*.log
+
+# ==============================
+# OS / IDE
+# ==============================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+
+# ==============================
+# Optuna
+# ==============================
+artifacts/optuna/

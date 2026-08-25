@@ -1,0 +1,10 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "sagemaker:InvokeEndpoint",
+      "Resource": "arn:aws:sagemaker:us-east-1:135053048192:endpoint/demand-forecasting-endpoint-endpoint-v6"
+    }
+  ]
+}

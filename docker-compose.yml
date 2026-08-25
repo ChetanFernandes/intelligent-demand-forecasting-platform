@@ -1,0 +1,45 @@
+# docker compose will handle multiple container as services
+services:
+  api :
+    image: api_image:latest
+    ports:
+      - 8000:8000
+    restart: unless-stopped
+    volumes:
+      - "${USERPROFILE}/.aws:/root/.aws:ro"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+      
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - "./src/prometheus:/etc/prometheus:ro"
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:12.1.1
+    ports:
+      - "3000:3000"
+
+    environment:
+      AWS_SHARED_CREDENTIALS_FILE: /etc/grafana/aws/credentials
+      AWS_CONFIG_FILE: /etc/grafana/aws/config
+
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - "${USERPROFILE}/.aws:/etc/grafana/aws:ro"
+    depends_on:
+      - prometheus
+
+volumes:
+  grafana_data:
+    external : True
+    
+
+  

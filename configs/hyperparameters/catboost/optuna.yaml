@@ -1,0 +1,9 @@
+learning_rate: 0.06679880044005419
+depth: 8
+iterations: 364
+l2_leaf_reg: 1.6447609938118624
+random_strength: 3.2107318629862522
+border_count: 255
+subsample: 0.641064159105469
+rsm: 0.8348285290349847
+min_data_in_leaf: 10
