@@ -143,7 +143,7 @@ The main objectives of this project were:
 ## 🧠 Machine Learning Pipeline
 
 
-1. **Data Ingestion**
+    1. **Data Ingestion**
 
     The project separates data ingestion from downstream machine learning components.
 
