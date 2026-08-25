@@ -26,19 +26,19 @@ This project implements an end-to-end demand forecasting platform that goes beyo
 ### End-to-End ML Lifecycle
 
         ```text
-        Data Ingestion
+    Data Ingestion
         ↓
-        Data Processing & Validation
+    Data Processing & Validation
         ↓
-        Feature Engineering
+    Feature Engineering
         ↓
-        Feature Selection & Encoding
+    Feature Selection & Encoding
         ↓
-        Model Training
+    Model Training
         ↓
-        Model Evaluation & Comparison
+    Model Evaluation & Comparison
         ↓
-        Hyperparameter Optimization
+    Hyperparameter Optimization
         ↓
         Experiment Tracking
         ↓
@@ -80,7 +80,7 @@ The main objectives of this project were:
 
 ## 🏗️ High-Level Architecture
                      ```text
-                                        ┌─────────────────────────────────────────────┐
+                    ┌─────────────────────────────────────────────┐
                     │       MACHINE LEARNING DEVELOPMENT          │
                     │                                             │
                     │  Source Data                                │
@@ -89,25 +89,25 @@ The main objectives of this project were:
                     │      ↓                                      │
                     │  Feature Engineering                        │
                     │      ↓                                      │
-                    │  Model Development                           │
+                    │  Model Development                          │
                     │  ┌──────────┬──────────┬──────────┐         │
                     │  │ LightGBM │ XGBoost  │ CatBoost │         │
                     │  └──────────┴──────────┴──────────┘         │
                     │      ↓                                      │
                     │  Hyperparameter Optimization                │
-                    │  • Optuna                                    │
-                    │  • Grid Search                               │
-                    │  • Random Search                             │
-                    │  • Ray + Optuna                              │
-                    │  • SageMaker tuning                          │
+                    │  • Optuna                                   │
+                    │  • Grid Search                              │
+                    │  • Random Search                            │
+                    │  • Ray + Optuna                             │
+                    │  • SageMaker tuning                         │
                     │      ↓                                      │
-                    │  Model Evaluation & Comparison               │
+                    │  Model Evaluation & Comparison              │
                     │      ↓                                      │
-                    │  MLflow Experiment Tracking                  │
+                    │  MLflow Experiment Tracking                 │
                     │      ↓                                      │
-                    │  Champion Model Selection                    │
+                    │  Champion Model Selection                   │
                     │      ↓                                      │
-                    │  Model Registry                              │
+                    │  Model Registry                             │
                     └──────────────────────┬──────────────────────┘
                                            │
                                            ▼
@@ -119,9 +119,9 @@ The main objectives of this project were:
                     │  Recursive Forecast Engine                  │
                     │      ↓                                      │
                     │  FastAPI Inference Service                  │
-                    │  • /forecast                                 │
-                    │  • /health                                   │
-                    │  • /metrics                                  │
+                    │  • /forecast                                │
+                    │  • /health                                  │
+                    │  • /metrics                                 │
                     │      ↓                                      │
                     │  Dockerized Production Service              │
                     │      ↓                                      │
@@ -143,7 +143,7 @@ The main objectives of this project were:
 ## 🧠 Machine Learning Pipeline
     The machine learning pipeline is organized as a sequence of reusable components covering data ingestion, processing, feature engineering, model development, optimization, evaluation, and model lifecycle management.
 
- 1. **Data Ingestion**
+🔽 1. **Data Ingestion**
 
     The project separates data ingestion from downstream machine learning components.
 
@@ -170,13 +170,13 @@ The main objectives of this project were:
 
     The pipeline includes processing and validation components for:
 
-    - Data preparation
-    - Data quality checks 
-    - Schema check
-    - Transformation
-    - Validation
-    - Production preprocessing
-    - Forecast-input preparation
+        - Data preparation
+        - Data quality checks 
+        - Schema check
+        - Transformation
+        - Validation
+        - Production preprocessing
+        - Forecast-input preparation
 
     Dedicated validation functionality exists across the training and production modules.
     The objective is to ensure that the data entering the model follows the expected schema and processing logic.
@@ -191,13 +191,13 @@ The main objectives of this project were:
 
     Key areas include:
 
-    Time-series feature construction
-    Historical demand information
-    Derived forecasting features
-    Categorical encoding
-    Numerical transformations
-    Feature selection
-    Production-consistent preprocessing
+        - Time-series feature construction
+        - Historical demand information
+        - Derived forecasting features
+        - Categorical encoding
+        - Numerical transformations
+        - Feature selection
+        - Production-consistent preprocessing
 
     The important architectural principle is:
 
@@ -230,7 +230,7 @@ The main objectives of this project were:
 
     Models implemented
 
-    Model	                      Role
+    ***Model***	                      ***Role***
     LightGBM	             Primary gradient-boosting candidate
     XGBoost	                 Alternative gradient-boosting candidate
     CatBoost	             Alternative gradient-boosting candidate with strong categorical-data support
@@ -256,8 +256,8 @@ The main objectives of this project were:
     Model comparison
     Validation
     Performance reporting
-    Model selection
-
+    Model selection 
+    
     components.
 
     This makes it possible to compare candidate models under the same data-processing and evaluation framework.
@@ -290,12 +290,12 @@ The main objectives of this project were:
 
     This design separates:
 
-    Hyperparameter definitions
-    Search spaces
-    Optimization strategies
-    Tuning execution
-    Result reporting
-    Visualization
+        - Hyperparameter definitions
+        - Search spaces
+        - Optimization strategies
+        - Tuning execution
+        - Result reporting
+        - Visualization
 
     from the actual model-training implementation.
 
@@ -305,19 +305,19 @@ The main objectives of this project were:
 
     For example, the same overall architecture can support:
 
-        Model
+       Model
         ↓
-        Objective Function
+     Objective Function
         ↓
-        Search Strategy
+     Search Strategy
         ↓
-        Trial
+      Trial
         ↓
-        Training
+    Training
         ↓
-        Evaluation
+    Evaluation
         ↓
-        Optimization
+    Optimization
 
     without rewriting the complete training pipeline for every optimization method.
 
@@ -349,11 +349,11 @@ The main objectives of this project were:
 
         including:
 
-        Optimization history
-        Parameter importance
-        Parallel coordinates
-        Slice plots
-        Contour plots
+        - Optimization history
+        - Parameter importance
+        - Parallel coordinates
+        - Slice plots
+        - Contour plots
 
         These artifacts make the optimization process inspectable rather than treating hyperparameter tuning as a black box.
 
@@ -700,55 +700,56 @@ The main objectives of this project were:
 
     The project follows several engineering principles.
 
-        ## Separation of concerns
+        1. ***Separation of concerns***
 
-        - Training, tuning, evaluation, registry, and production inference are separated into dedicated modules.
+           - Training, tuning, evaluation, registry, and production inference are separated into dedicated modules.
 
-        ## Configuration-driven experimentation
+        2. ***Configuration-driven experimentation***
 
-        - Hyperparameter configurations are stored separately from training code.
+           - Hyperparameter configurations are stored separately from training code.
 
-        ## Pluggable tuning strategies
+        3. ***Pluggable tuning strategies***
 
-        - Different optimization strategies can be selected without rewriting the entire training pipeline.
+           - Different optimization strategies can be selected without rewriting the entire training pipeline.
 
-        ## Reusable preprocessing
+        4. ***Reusable preprocessing***
 
-        - Production preprocessing is separated from research experimentation so inference can reproduce the required transformations.
+            - Production preprocessing is separated from research experimentation so inference can reproduce the required transformations.
 
-        ## Model lifecycle management
+        5. ***Model lifecycle management***
 
-        - Model evaluation, champion selection, registry, and deployment are treated as separate lifecycle stages.
+            - Model evaluation, champion selection, registry, and deployment are treated as separate lifecycle stages.
 
-        ## Observability by design
+        6. ***Observability by design***
 
-        - The production service exposes metrics and integrates with centralized logging.
+            - The production service exposes metrics and integrates with centralized logging.
 
-        ## Cloud-ready architecture
+        7. ***Cloud-ready architecture***
 
-        - The system supports AWS-based storage, compute, managed ML services, and monitoring.
+            - The system supports AWS-based storage, compute, managed ML services, and monitoring.
 
 ## 🛠️ **Technology Stack**
-      ![Technology Stack](images\image.png)
+      ![Technology Stack](images/image.png)
 
 ## 🧠 **What Makes This Project Different?**
 
         This project is intentionally designed to demonstrate more than model accuracy.
 
         It covers the complete lifecycle
-        Research
-        ↓
-        Experimentation
-        ↓
-        Optimization
-        ↓
-        Model Management
-        ↓
-        Productionization
-        ↓
-        Cloud Deployment
-        ↓
-        Monitoring
+            Research
+                ↓
+            Experimentation
+                ↓
+            Optimization
+                ↓
+            Model Management
+                ↓
+            Productionization
+                ↓
+            Cloud Deployment
+                ↓
+            Monitoring
+
         It separates training from inference
 
         The production environment does not need to contain the entire experimentation stack.
@@ -761,63 +762,64 @@ The main objectives of this project were:
 
         The project addresses:
 
-        API health
-        Request metrics
-        Error monitoring
-        Request latency
-        Centralized logs
-        Cloud deployment
-        IAM
-        Containerization
-        Model lifecycle management
+            - API health
+            - Request metrics
+            - Error monitoring
+            - Request latency
+            - Centralized logs
+            - Cloud deployment
+            - IAM
+            - Containerization
+            - Model lifecycle management
 
 
 ## 🔮 **Future Improvements**
 
     Potential future enhancements include:
 
-    CI/CD automation for training and deployment
-    Automated model retraining workflows
-    Data drift monitoring
-    Model drift monitoring
-    Automated model promotion based on validation criteria
-    Feature-store integration
-    Distributed training at larger scale
-    API authentication and authorization
-    Kubernetes-based orchestration
-    Automated integration testing in CI
-    Advanced forecasting ensembles
-    Automated model performance dashboards
+    - CI/CD automation for training and deployment
+    - Automated model retraining workflows
+    - Data drift monitoring
+    - Model drift monitoring
+    - Automated model promotion based on validation criteria
+    - Feature-store integration
+    - Distributed training at larger scale
+    - API authentication and authorization
+    - Kubernetes-based orchestration
+    - Automated integration testing in CI
+    - Advanced forecasting ensembles
+    - Automated model performance dashboards
 
 ## 📚 **Project Learning Outcomes**
 
     This project provided hands-on implementation across the complete machine learning lifecycle:
 
-    Data engineering
-    Time-series feature engineering
-    Supervised learning for forecasting
-    Gradient boosting
-    Feature selection
-    Model comparison
-    Hyperparameter optimization
-    Distributed experimentation
-    MLflow
-    Model registry
-    Recursive forecasting
-    API development
-    Docker
-    AWS
-    IAM
-    S3
-    SageMaker
-    ECR
-    EC2
-    CloudWatch
-    Prometheus
-    Grafana
-    Alertmanager
-    Testing
-    Production ML architecture
+    - Data engineering
+    - Time-series feature engineering
+    - Supervised learning for forecasting
+    - Gradient boosting
+    - Feature selection
+    - Model comparison
+    - Hyperparameter optimization
+    - Distributed experimentation
+    - MLflow
+    - Model registry
+    - Recursive forecasting
+    - API development
+    - Docker
+    - AWS
+    - IAM
+    - S3
+    - SageMaker
+    - ECR
+    - EC2
+    - CloudWatch
+    - Prometheus
+    - Grafana
+    - Alertmanager
+    - Testing
+    - Production ML architecture
+    
     👨‍💻 Author
 
     Chetan Fernandes
