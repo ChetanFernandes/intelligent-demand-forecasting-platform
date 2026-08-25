@@ -1,12 +1,12 @@
 
 # Intelligent Demand Forecasting Platform
 
-> An end-to-end, production-oriented machine learning platform for demand forecasting, covering data ingestion, preprocessing, feature engineering, model training, model comparison, automated hyperparameter optimization, experiment tracking, model registry, recursive forecasting, API serving, cloud deployment, and observability.
+> An end-to-end, production-oriented machine learning and MLOps platform for demand forecasting, covering data ingestion, data validation, feature engineering, model development, model comparison, automated hyperparameter optimization, experiment tracking, model registry, recursive forecasting, API serving, AWS deployment, and production observability.
 
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
 [![LightGBM](https://img.shields.io/badge/LightGBM-Gradient%20Boosting-brightgreen.svg)](https://lightgbm.readthedocs.io/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-Gradient%20Boosting-orange.svg)](https://xgboost.readthedocs.io/)
-[![CatBoost](https://img.shields.io/badge/CatBoost-Gradient%20Boosting-blue.svg)](https://catboost.ai/)
+[![CatBoost](https://img.shields.io/badge/CatBoost-Gradient%20Boosting-blue.svg)]
 [![Optuna](https://img.shields.io/badge/Optuna-Hyperparameter%20Optimization-blueviolet.svg)](https://optuna.org/)
 [![MLflow](https://img.shields.io/badge/MLflow-Experiment%20Tracking-blue.svg)](https://mlflow.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Inference%20API-009688.svg)](https://fastapi.tiangolo.com/)
@@ -15,148 +15,150 @@
 [![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-orange.svg)](https://prometheus.io/)
 [![Grafana](https://img.shields.io/badge/Grafana-Observability-orange.svg)](https://grafana.com/)
 
----
 
-## Project Overview
+
+## 🎯 Project Overview
 
 Demand forecasting is a critical machine learning problem for organizations that need to anticipate future demand and make better decisions around inventory, supply, production, procurement, and operations.
 
-This project implements a complete demand forecasting platform that goes beyond model training.
+This project implements an end-to-end demand forecasting platform that goes beyond model training and covers the complete machine learning lifecycle — from data ingestion and feature engineering to model optimization, production inference, cloud deployment, and monitoring.
 
-The platform is designed around the complete machine learning lifecycle:
+### End-to-End ML Lifecycle
 
+        ```text
+        Data Ingestion
+        ↓
+        Data Processing & Validation
+        ↓
+        Feature Engineering
+        ↓
+        Feature Selection & Encoding
+        ↓
+        Model Training
+        ↓
+        Model Evaluation & Comparison
+        ↓
+        Hyperparameter Optimization
+        ↓
+        Experiment Tracking
+        ↓
+        Champion Model Selection
+        ↓
+        Model Registry
+        ↓
+        Recursive Forecasting
+        ↓
+        Production Inference API
+        ↓
+        Dockerized Deployment
+        ↓
+        AWS Deployment
+        ↓
+        Prometheus + Grafana Monitoring
+        ↓
+        CloudWatch Logging
 
-Data Ingestion -> Data Processing & Validation -> Feature Engineering -> Feature Selection / Encoding -> Model Training
--> Model Evaluation & Comparison -> Hyperparameter Optimization -> Experiment Tracking -> Champion Model Selection -> Model Registry
--> Recursive Forecasting -> Production Inference API -> Dockerized Deployment -> AWS Deployment -> Prometheus + Grafana Monitoring
--> CloudWatch Logging
-
-The goal was to build a system that demonstrates how a forecasting model can move from research and experimentation to production inference and monitoring.
-
-## 🎯Objectives
+## 🎯 Objectives
 
 The main objectives of this project were:
 
-    Build a reusable demand forecasting pipeline.
-    Automate data ingestion and preprocessing.
-    Transform historical demand data into a machine-learning-ready dataset.
-    Engineer forecasting features suitable for tree-based models.
-    Evaluate multiple gradient-boosting algorithms.
-    Implement systematic model comparison.
-    Automate hyperparameter optimization.
-    Track experiments and model versions.
-    Select and manage a champion model.
-    Support recursive multi-step forecasting.
-    Expose forecasting functionality through an API.
-    Containerize the production inference service.
-    Deploy the inference workload to AWS.
-    Implement application and infrastructure observability.
-    Validate the system through automated tests.
+    - Build a reusable demand forecasting pipeline.
+    - Automate data ingestion and preprocessing.
+    - Transform historical demand data into a machine-learning-ready dataset.
+    - Engineer forecasting features suitable for tree-based models.
+    - Evaluate multiple gradient-boosting algorithms.
+    - Implement systematic model comparison.
+    - Automate hyperparameter optimization.
+    - Track experiments and model versions.
+    - Select and manage a champion model.
+    - Support recursive multi-step forecasting.
+    - Expose forecasting functionality through an API.
+    - Containerize the production inference service.
+    - Deploy the inference workload to AWS.
+    - Implement application and infrastructure observability.
+    - Validate the system through automated tests.
 
 ## 🏗️ High-Level Architecture
-
-                    ┌─────────────────────────┐
-                    │       Source Data       │
-                    └────────────┬────────────┘
-                                 │
-                                 ▼
-                    ┌────────────────────────────────┐
-                    │ Data Ingestion & Processing    │
-                    │                                │
-                    │ • Ingestion                    │
-                    │ • Cleaning                     │
-                    │ • Validation                   │
-                    │ • Preprocessing                │
-                    └───────────────┬────────────────┘
-                                    │
-                                    ▼
-                    ┌────────────────────────────────┐
-                    │ Feature Engineering            │
-                    │                                │
-                    │ • Time-series transformations  │
-                    │ • Encodings                    │
-                    │ • Derived features             │
-                    │ • Feature selection            │
-                    └───────────────┬────────────────┘
-                                    │
-                                    ▼
-             ┌─────────────────────────────────────────────┐
-             │             Model Development               │
-             │                                             │
-             │  LightGBM    XGBoost    CatBoost            │
-             │      │          │          │                │
-             │      └──────────┼──────────┘                │
-             │                 ▼                           │
-             │       Model Evaluation & Comparison         │
-             └────────────────────┬────────────────────────┘
-                                  │
-                                  ▼
-             ┌─────────────────────────────────────────────┐
-             │       Hyperparameter Optimization           │
-             │                                             │
-             │ • Optuna                                    │
-             │ • Grid Search                               │
-             │ • Random Search                             │
-             │ • Ray + Optuna                              │
-             │ • SageMaker tuning                          │
-             └────────────────────┬────────────────────────┘
-                                  │
-                                  ▼
-             ┌─────────────────────────────────────────────┐
-             │          MLflow & Model Registry            │
-             │                                             │
-             │ • Experiment Tracking                       │
-             │ • Metrics / Parameters                      │
-             │ • Model Versioning                          │
-             │ • Champion Model                            │
-             └────────────────────┬────────────────────────┘
-                                  │
-                                  ▼
-                     ┌──────────────────────────┐
-                     │ Recursive Forecast Engine│
-                     └─────────────┬────────────┘
-                                   │
-                                   ▼
-                     ┌──────────────────────────┐
-                     │      FastAPI Service     │
-                     │                          │
-                     │ • /forecast              │
-                     │ • /health                │
-                     │ • /metrics               │
-                     └────────────┬─────────────┘
-                                  │
-                                  ▼
-                   ┌──────────────────────────────┐
-                   │ Dockerized Production Service│
-                   └──────────────┬───────────────┘
-                                  │
-                  ┌───────────────┴────────────────┐
-                  ▼                                ▼
-           ┌──────────────┐                ┌──────────────┐
-           │ AWS Services │                │ Observability│
-           │              │                │              │
-           │ • EC2        │                │ Prometheus   │
-           │ • S3         │                │ Grafana      │
-           │ • SageMaker  │                │ CloudWatch   │
-           └──────────────┘                └──────────────┘
+                     ```text
+                                        ┌─────────────────────────────────────────────┐
+                    │       MACHINE LEARNING DEVELOPMENT          │
+                    │                                             │
+                    │  Source Data                                │
+                    │      ↓                                      │
+                    │  Data Ingestion & Processing                │
+                    │      ↓                                      │
+                    │  Feature Engineering                        │
+                    │      ↓                                      │
+                    │  Model Development                           │
+                    │  ┌──────────┬──────────┬──────────┐         │
+                    │  │ LightGBM │ XGBoost  │ CatBoost │         │
+                    │  └──────────┴──────────┴──────────┘         │
+                    │      ↓                                      │
+                    │  Hyperparameter Optimization                │
+                    │  • Optuna                                    │
+                    │  • Grid Search                               │
+                    │  • Random Search                             │
+                    │  • Ray + Optuna                              │
+                    │  • SageMaker tuning                          │
+                    │      ↓                                      │
+                    │  Model Evaluation & Comparison               │
+                    │      ↓                                      │
+                    │  MLflow Experiment Tracking                  │
+                    │      ↓                                      │
+                    │  Champion Model Selection                    │
+                    │      ↓                                      │
+                    │  Model Registry                              │
+                    └──────────────────────┬──────────────────────┘
+                                           │
+                                           ▼
+                    ┌─────────────────────────────────────────────┐
+                    │           PRODUCTION INFERENCE              │
+                    │                                             │
+                    │  Registered / Selected Model                │
+                    │      ↓                                      │
+                    │  Recursive Forecast Engine                  │
+                    │      ↓                                      │
+                    │  FastAPI Inference Service                  │
+                    │  • /forecast                                 │
+                    │  • /health                                   │
+                    │  • /metrics                                  │
+                    │      ↓                                      │
+                    │  Dockerized Production Service              │
+                    │      ↓                                      │
+                    │  AWS EC2                                    │
+                    └──────────────────────┬──────────────────────┘
+                                           │
+                    ┌──────────────────────┴──────────────────────┐
+                    │                                             │
+                    ▼                                             ▼
+       ┌──────────────────────────┐              ┌──────────────────────────┐
+       │     CLOUD SERVICES       │              │      OBSERVABILITY       │
+       │                          │              │                          │
+       │ • Amazon S3              │              │ • Prometheus             │
+       │ • Amazon ECR             │              │ • Grafana                │
+       │ • Amazon SageMaker       │              │ • CloudWatch Logs        │
+       │ • AWS IAM                │              │                          │
+       └──────────────────────────┘              └──────────────────────────┘
 
 ## 🧠 Machine Learning Pipeline
+    The machine learning pipeline is organized as a sequence of reusable components covering data ingestion, processing, feature engineering, model development, optimization, evaluation, and model lifecycle management.
 
-
-1. **Data Ingestion**
+ 1. **Data Ingestion**
 
     The project separates data ingestion from downstream machine learning components.
 
     The ingestion layer is responsible for bringing the required source data into the processing pipeline and preparing it for subsequent transformations.
 
     The repository contains dedicated ingestion and processing components under:
-
+    
+    ```text
     src_training/
     ├── ingestion/
     └── data_ingestion_processing_training/
 
     The production deployment also contains a separate ingestion/processing layer:
 
+    ```text
     src_production_deployment/
     └── data_ingestion_processing/
 
@@ -168,16 +170,15 @@ The main objectives of this project were:
 
     The pipeline includes processing and validation components for:
 
-    Data preparation
-    Data quality checks 
-    Schema check
-    Transformation
-    Validation
-    Production preprocessing
-    Forecast-input preparation
+    - Data preparation
+    - Data quality checks 
+    - Schema check
+    - Transformation
+    - Validation
+    - Production preprocessing
+    - Forecast-input preparation
 
-    The project also contains dedicated validation functionality under the training and production modules.
-
+    Dedicated validation functionality exists across the training and production modules.
     The objective is to ensure that the data entering the model follows the expected schema and processing logic.
 
 🛠️ 3. **Feature Engineering**
